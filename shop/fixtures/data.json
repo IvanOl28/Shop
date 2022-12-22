@@ -1,0 +1,162 @@
+[
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$390000$NfoyZ6jPJk7Py2psjbz94r$Aop8sJbrn1yXii6sD7MbM3RFRPy+Gb3x2xV8y+suSTs=",
+    "last_login": "2022-12-22T09:53:38.511Z",
+    "is_superuser": true,
+    "username": "root",
+    "first_name": "",
+    "last_name": "",
+    "email": "root@root.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2022-12-18T12:23:26.921Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$390000$6mSi6XBt0CC8R9qzyO1r79$adewrEqRX0E6jMmGsySDBPEl6YUbWmJm3Tnrfk9Gsg4=",
+    "last_login": "2022-12-22T05:47:09.837Z",
+    "is_superuser": false,
+    "username": "user",
+    "first_name": "",
+    "last_name": "",
+    "email": "user@user.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2022-12-22T05:47:09.570Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 1,
+  "fields": {
+    "name": "Man Office Bag",
+    "code": "1",
+    "price": "150.00",
+    "unit": "apiece",
+    "image_url": "https://img01.ztat.net/article/spp-media-p1/71a898ea4f954983939873a5940b89a0/9980b57c4829444397186966bc0f1ca2.jpg?imwidth=762&filter=packshot",
+    "note": ""
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 2,
+  "fields": {
+    "name": "Quartz Belt Watch",
+    "code": "2",
+    "price": "150.00",
+    "unit": "apiece",
+    "image_url": "https://m.media-amazon.com/images/I/51naYHFAILL._AC_SL1500_.jpg",
+    "note": ""
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 3,
+  "fields": {
+    "name": "Women Freshwash",
+    "code": "3",
+    "price": "250.00",
+    "unit": "apiece",
+    "image_url": "https://m.media-amazon.com/images/G/01/apparel/rcxgs/tile._CB483369110_.gif",
+    "note": ""
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 4,
+  "fields": {
+    "name": "Room Flash Light",
+    "code": "4",
+    "price": "150.00",
+    "unit": "apiece",
+    "image_url": "http://cdn6.dissolve.com/p/D524_1_139/D524_1_139_0004_600.jpg",
+    "note": ""
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 5,
+  "fields": {
+    "name": "Charging Car",
+    "code": "5",
+    "price": "500.00",
+    "unit": "apiece",
+    "image_url": "https://blog.evbox.com/hs-fs/hubfs/closeup-hand-grip-plug-connected-with-socket-charge-white-electric-car-rechargeable-battery%20(1).jpg?width=4537&name=closeup-hand-grip-plug-connected-with-socket-ch",
+    "note": ""
+  }
+},
+{
+  "model": "shop.payment",
+  "pk": 1,
+  "fields": {
+    "user": 2,
+    "amount": "1000.00",
+    "time": "2022-12-22T10:54:29.882Z",
+    "comment": ""
+  }
+},
+{
+  "model": "shop.payment",
+  "pk": 2,
+  "fields": {
+    "user": 2,
+    "amount": "10000.00",
+    "time": "2022-12-22T10:54:54.852Z",
+    "comment": ""
+  }
+},
+{
+  "model": "shop.payment",
+  "pk": 3,
+  "fields": {
+    "user": 2,
+    "amount": "2000.00",
+    "time": "2022-12-22T10:55:02.933Z",
+    "comment": ""
+  }
+},
+{
+  "model": "shop.order",
+  "pk": 1,
+  "fields": {
+    "user": 2,
+    "status": "2_waiting_for_payment",
+    "amount": "14444.00",
+    "creation_time": "2022-12-22T10:55:55.803Z",
+    "payment": null,
+    "comment": ""
+  }
+},
+{
+  "model": "shop.orderitem",
+  "pk": 1,
+  "fields": {
+    "order": 1,
+    "product": 1,
+    "quantity": 6,
+    "price": "2555.00",
+    "discount": "0.00"
+  }
+},
+{
+  "model": "shop.orderitem",
+  "pk": 2,
+  "fields": {
+    "order": 1,
+    "product": 3,
+    "quantity": 9,
+    "price": "1655.00",
+    "discount": "0.00"
+  }
+}
+]
