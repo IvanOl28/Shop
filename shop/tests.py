@@ -208,28 +208,28 @@ class TestDataBase(TestCase):
         self.assertEqual(Payment.get_balance(self.user), Decimal(0))
         amount = Order.get_amount_of_unpaid_orders(self.user)
         self.assertEqual(amount, Decimal(0))
-    #
-    # def test_auto_payment_for_earlier_order(self):
-    #     """There is unpaid order=13556 and balance=13000
-    #     After creating new order= 1000 applying payment=1000:
-    #         - only earlier order must change status
-    #         - and balance must be 13000+1000-13556
-    #     """
-    #     cart = Order.get_cart(self.user)
-    #     OrderItem.objects.create(order=cart, product=self.p, price=2, quantity=500)
-    #     Payment.objects.create(user=self.user, amount=1000)
-    #     self.assertEqual(Payment.get_balance(self.user), Decimal(444))
-    #     amount = Order.get_amount_of_unpaid_orders(self.user)
-    #     self.assertEqual(amount, Decimal(1000))
-    #
-    # def test_auto_payment_for_all_order(self):
-    #     """There is unpaid order=13556 and balance=13000
-    #     After creating new order= 1000 applying payment=1000:
-    #         - all orders must be paid
-    #     """
-    #     cart = Order.get_cart(self.user)
-    #     OrderItem.objects.create(order=cart, product=self.p, price=2, quantity=500)
-    #     Payment.objects.create(user=self.user, amount=10000)
-    #     self.assertEqual(Payment.get_balance(self.user), Decimal(9444))
-    #     amount = Order.get_amount_of_unpaid_orders(self.user)
-    #     self.assertEqual(amount, Decimal(0))
+
+    def test_auto_payment_for_earlier_order(self):
+        """There is unpaid order=13556 and balance=13000
+        After creating new order= 1000 applying payment=1000:
+            - only earlier order must change status
+            - and balance must be 13000+1000-13556
+        """
+        cart = Order.get_cart(self.user)
+        OrderItem.objects.create(order=cart, product=self.p, price=2, quantity=500)
+        Payment.objects.create(user=self.user, amount=1000)
+        self.assertEqual(Payment.get_balance(self.user), Decimal(444))
+        amount = Order.get_amount_of_unpaid_orders(self.user)
+        self.assertEqual(amount, Decimal(1000))
+
+    def test_auto_payment_for_all_order(self):
+        """There is unpaid order=13556 and balance=13000
+        After creating new order= 1000 applying payment=1000:
+            - all orders must be paid
+        """
+        cart = Order.get_cart(self.user)
+        OrderItem.objects.create(order=cart, product=self.p, price=2, quantity=500)
+        Payment.objects.create(user=self.user, amount=10000)
+        self.assertEqual(Payment.get_balance(self.user), Decimal(9444))
+        amount = Order.get_amount_of_unpaid_orders(self.user)
+        self.assertEqual(amount, Decimal(0))
