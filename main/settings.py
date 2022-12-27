@@ -129,3 +129,7 @@ STATICFILES_DIRS = (
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+URL_SCRAPING = 'https://marc-o-polo.ru/women/catalog/sumki/'
+
+URL_SCRAPING_DOMAIN = 'https://marc-o-polo.ru/'

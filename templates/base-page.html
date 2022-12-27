@@ -32,14 +32,18 @@
           <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
             <ul class="nav navbar-nav menu_nav ml-auto mr-auto">
               <li class="nav-item active"><a class="nav-link" href="/">Home</a></li>
+
               <li class="nav-item submenu dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                   aria-expanded="false">Shop</a>
                 <ul class="dropdown-menu">
                   <li class="nav-item"><a class="nav-link" href="{% url 'category' %}">Shop Category</a></li>
-                  <li class="nav-item"><a class="nav-link" href="{% url 'product-details' %}">Product Details</a></li>
+				  <li class="nav-item"><a class="nav-link" href="{% url 'cart' %}">Cart</a></li>
+					{% if user.is_staff %} <li class="nav-item"><a class="nav-link" href="{% url 'category-add' %}">Category Add</a></li>
+					{% endif %}
                 </ul>
 							</li>
+
               <li class="nav-item submenu dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                   aria-expanded="false">Blog</a>
@@ -48,14 +52,6 @@
                 </ul>
 							</li>
               <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
-			  				<li class="nav-item submenu dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                  aria-expanded="false">Pages</a>
-                <ul class="dropdown-menu">
-                  <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
-                  <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Register</a></li>
-                  <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
-                </ul>
               </li>
             </ul>
 			 <ul>
@@ -105,7 +101,6 @@
 								<li><a href="/">Home</a></li>
 								<li><a href="{% url 'category' %}">Shop</a></li>
 								<li><a href="{% url 'blog' %}">Blog</a></li>
-								<li><a href="{% url 'product-details' %}">Product</a></li>
 								<li><a href="{% url 'contact' %}">Contact</a></li>
 							</ul>
 						</div>

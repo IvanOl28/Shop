@@ -1,0 +1,101 @@
+{% extends 'base-page.html' %}
+{% load static %}
+
+{% block title %}
+  Cart
+{% endblock title %}
+
+{% block container %}
+	<!-- ================ start banner area ================= -->	
+	<section class="blog-banner-area" id="category">
+		<div class="container h-100">
+			<div class="blog-banner">
+				<div class="text-center">
+					<h1>Shopping Cart</h1>
+					<nav aria-label="breadcrumb" class="banner-breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="/">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Shopping Cart</li>
+            </ol>
+          </nav>
+				</div>
+			</div>
+    </div>
+	</section>
+	<!-- ================ end banner area ================= -->
+  
+  
+
+  <!--================Cart Area =================-->
+  <section class="cart_area">
+      <div class="container">
+          <div class="cart_inner">
+              <div class="table-responsive">
+                  <table class="table">
+                      <thead>
+                          <tr>
+                              <th scope="col">Product</th>
+                              <th scope="col">Name</th>
+                              <th scope="col">Price</th>
+                              <th scope="col">Quantity</th>
+                              <th scope="col">Total</th>
+                              <th scope="col">Change</th>
+                          </tr>
+                      </thead>
+                      {% for item in items %}
+                      <tbody>
+                          <tr>
+                              <td>
+                                  <div class="quantity">
+                                      &nbsp;&nbsp;&nbsp;{{ forloop.counter }}
+                                  </div>
+                              </td>
+                              <td>
+                                  <h5>{{ item.product }}</h5>
+                              <td>
+                                  <h5>{{ item.price }}</h5>
+                              </td>
+                              <td>
+                                  <div class="product_count">
+                                      <h5>{{ item.quantity }}</h5>
+                                  </div>
+                              </td>
+                              <td>
+                                  <h5>{{ item.amount }}</h5>
+                              </td>
+                              <td>
+                                <div>
+                                    <form method="post" action="{% url 'cart_delete_item' item.pk %}">
+                                        {% csrf_token %}
+                                        <button type="submit" class="button button--active">delete</button>
+                                    </form>
+                                </div>
+                              </td>
+                          </tr>
+                            {% endfor %}
+                          <tr class="out_button_area">
+                              <td class="d-none-l">
+                              </td>
+                              <td class="">
+                              </td>
+                              <td class="">
+                              </td>
+                              <td class="">
+                              </td>
+                              <td>
+                              </td>
+                              <td>
+                                  <div class="checkout_btn_inner d-flex align-items-center">
+                                      <a class="gray_btn" href="{% url 'category' %}">Continue Shopping</a>
+                                      <a class="primary-btn ml-2" href="{% url 'make_order' %}">Process to Payment</a>
+                                  </div>
+                              </td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+      </div>
+  </section>
+  <!--================End Cart Area =================-->
+{% endblock container %}

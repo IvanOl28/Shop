@@ -1,0 +1,79 @@
+{% extends 'base-page.html' %}
+{% load static %}
+
+{% block title %}
+  Shop Category Add
+{% endblock title %}
+
+{% block container %}
+
+	<!-- ================ start banner area ================= -->
+<section class="blog-banner-area" id="category" xmlns="http://www.w3.org/1999/html">
+		<div class="container h-100">
+			<div class="blog-banner">
+				<div class="text-center">
+					<h1>Shop Category Add</h1>
+					<nav aria-label="breadcrumb" class="banner-breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="/">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Shop Category Add</li>
+            </ol>
+          </nav>
+				</div>
+			</div>
+    </div>
+	</section>
+	<!-- ================ end banner area ================= -->
+
+<!-- ================ category section start ================= -->
+  <section class="section-margin--small mb-5">
+        <div class="container">
+            <form method="post" action="{% url 'category-add' %}">
+                {% csrf_token %}
+                <div class="form-group text-center text-md-center mt-3">
+              <button type="submit" class="button button--active" name="category" onclick="runSpinner()">
+                    <span class="spinner spinner-border spinner-border-sm" role="status" id="spinner"
+                    style="visibility: hidden" aria-hidden="true"></span>Product catalog</button>
+            </div>
+          </form>
+        </div>
+  </section>
+
+    {% if massage %}
+    <div class="container">
+          <div class="row">
+            <div class="main-heading-block">
+                <h2> Errors of scrapping: <br><br>
+                    <span style="color:rad">{{massage}}</span>
+                </h2>
+            </div>
+          </div>
+    </div>
+    {% endif %}
+<!--================ category section end =================
+
+================ Subscribe section start ================= -->
+  <section class="subscribe-position">
+    <div class="container">
+      <div class="subscribe text-center">
+        <h3 class="subscribe__title">Get Update From Anywhere</h3>
+        <p>Receive information by mail, click below</p>
+        <div id="mc_embed_signup">
+          <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="subscribe-form form-inline mt-5 pt-1">
+            <div class="form-group ml-sm-auto">
+              <input class="form-control mb-1" type="email" name="EMAIL" placeholder="Enter your email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Email Address '" >
+              <div class="info"></div>
+            </div>
+            <button class="button button-subscribe mr-auto mb-1" type="submit">Subscribe Now</button>
+            <div style="position: absolute; left: -5000px;">
+              <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
+            </div>
+
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+	<!-- ================ Subscribe section end ================= -->
+{% endblock container %}

@@ -5,12 +5,12 @@ def index(request):
     return render(request, 'index.html')
 
 
-def category(request):
-    return render(request, 'category.html')
-
-
-def product_details(request):
-    return render(request, 'product-details.html')
+# def category(request):
+#     return render(request, 'category.html')
+#
+#
+# def product_details(request):
+#     return render(request, 'product-details.html')
 
 
 def blog(request):
